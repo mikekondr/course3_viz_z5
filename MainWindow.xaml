@@ -61,7 +61,16 @@
                         <TextBlock Foreground="Blue" Text="Основне"/>
                     </StackPanel>
                 </TabItem.Header>
-                <Label Content="Тут розміщується вміст..." />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" HorizontalAlignment="Center" Text="Ліва частина" TextWrapping="Wrap"/>
+                    <GridSplitter Grid.Column="1" Width="5" Background="LightGray" HorizontalAlignment="Stretch"/>
+                    <TextBlock Grid.Column="2" HorizontalAlignment="Center" Text="Права частина" TextWrapping="Wrap"/>
+                </Grid>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
