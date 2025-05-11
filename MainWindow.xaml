@@ -79,6 +79,16 @@
                         <TextBlock Foreground="Green" Text="Безпека"/>
                     </StackPanel>
                 </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Верхня частина" TextWrapping="Wrap"/>
+                    <GridSplitter Grid.Row="1" Height="5" Background="LightGray" HorizontalAlignment="Stretch"/>
+                    <TextBlock Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Нижня частина" TextWrapping="Wrap"/>
+                </Grid>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
