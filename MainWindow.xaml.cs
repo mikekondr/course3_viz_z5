@@ -24,5 +24,37 @@ namespace SplitZonesApp
         {
             InitializeComponent();
         }
+
+        private void btnPrevTab_Click(object sender, RoutedEventArgs e)
+        {
+            int newIndex = tc.SelectedIndex - 1;
+            if (newIndex < 0)
+            {
+                newIndex = tc.Items.Count - 1;
+            }
+            tc.SelectedIndex = newIndex;
+        }
+
+        private void btnNextTab_Click(object sender, RoutedEventArgs e)
+        {
+            int newIndex = tc.SelectedIndex + 1;
+            if (newIndex >= tc.Items.Count)
+            {
+                newIndex = 0;
+            }
+            tc.SelectedIndex = newIndex;
+        }
+
+        private void btnSelectedTab_Click(object sender, RoutedEventArgs e)
+        {
+            if (tc.SelectedItem != null)
+            {
+                MessageBox.Show($"Поточна вкладка: {((TextBlock)((StackPanel)((TabItem)tc.SelectedItem).Header).Children[1]).Text}");
+            }
+            else
+            {
+                MessageBox.Show("Немає поточної вкладки!");
+            }
+        }
     }
 }

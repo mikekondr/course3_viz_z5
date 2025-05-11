@@ -7,31 +7,38 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="200" Width="300"
         Icon="/img/application_form.png">
-    <TabControl>
-        <TabItem>
-            <TabItem.Header>
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="/img/bullet_blue.png"/>
-                    <TextBlock Foreground="Blue" Text="Основне"/>
-                </StackPanel>
-            </TabItem.Header>
-            <Label Content="Тут розміщується вміст..." />
-        </TabItem>
-        <TabItem>
-            <TabItem.Header>
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="/img/bullet_green.png"/>
-                    <TextBlock Foreground="Green" Text="Безпека"/>
-                </StackPanel>
-            </TabItem.Header>
-        </TabItem>
-        <TabItem>
-            <TabItem.Header>
-                <StackPanel Orientation="Horizontal">
-                    <Image Source="/img/bullet_red.png"/>
-                    <TextBlock Foreground="Red" Text="Детальніше"/>
-                </StackPanel>
-            </TabItem.Header>
-        </TabItem>
-    </TabControl>
+    <DockPanel>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Margin="2,5">
+            <Button Name="btnPrevTab" Click="btnPrevTab_Click">Попер.</Button>
+            <Button Name="btnNextTab" Click="btnNextTab_Click">Наступ.</Button>
+            <Button Name="btnSelectedTab" Click="btnSelectedTab_Click">Поточна</Button>
+        </StackPanel>
+        <TabControl Name="tc">
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/img/bullet_blue.png"/>
+                        <TextBlock Foreground="Blue" Text="Основне"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Label Content="Тут розміщується вміст..." />
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/img/bullet_green.png"/>
+                        <TextBlock Foreground="Green" Text="Безпека"/>
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/img/bullet_red.png"/>
+                        <TextBlock Foreground="Red" Text="Детальніше"/>
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+        </TabControl>
+    </DockPanel>
 </Window>
