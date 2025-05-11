@@ -5,14 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SplitZonesApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="200" Width="300">
+        Title="MainWindow" Height="200" Width="300"
+        Icon="/img/application_form.png">
     <TabControl>
-        <TabItem Header="Основне">
+        <TabItem>
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/img/bullet_blue.png"/>
+                    <TextBlock Foreground="Blue" Text="Основне"/>
+                </StackPanel>
+            </TabItem.Header>
             <Label Content="Тут розміщується вміст..." />
         </TabItem>
-        <TabItem Header="Безпека">
+        <TabItem>
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/img/bullet_green.png"/>
+                    <TextBlock Foreground="Green" Text="Безпека"/>
+                </StackPanel>
+            </TabItem.Header>
         </TabItem>
-        <TabItem Header="Детальніше">
+        <TabItem>
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/img/bullet_red.png"/>
+                    <TextBlock Foreground="Red" Text="Детальніше"/>
+                </StackPanel>
+            </TabItem.Header>
         </TabItem>
     </TabControl>
 </Window>
