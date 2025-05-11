@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SplitZonesApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="200" Width="300"
+        Title="MainWindow" Height="300" Width="300"
         Icon="/img/application_form.png">
     <DockPanel>
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" Margin="2,5">
@@ -13,11 +13,46 @@
             <Button Name="btnNextTab" Click="btnNextTab_Click">Наступ.</Button>
             <Button Name="btnSelectedTab" Click="btnSelectedTab_Click">Поточна</Button>
         </StackPanel>
-        <TabControl Name="tc">
+        <TabControl Name="tc" TabStripPlacement="Left">
+            <TabControl.Resources>
+                <Style TargetType="{x:Type TabItem}">
+                    <Setter Property="HeaderTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <ContentPresenter Content="{Binding}">
+                                    <ContentPresenter.LayoutTransform>
+                                        <RotateTransform Angle="-90" />
+                                    </ContentPresenter.LayoutTransform>
+                                </ContentPresenter>
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TabItem}">
+                                <Grid Name="Panel">
+                                    <ContentPresenter x:Name="ContentSite" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                                      ContentSource="Header" Margin="10,4"/>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="Panel" Property="Background" Value="LightSkyBlue"/>
+                                        <Setter TargetName="ContentSite" Property="Margin" Value="10,2,2,2"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="False">
+                                        <Setter TargetName="Panel" Property="Background" Value="White"/>
+                                        <Setter TargetName="ContentSite" Property="Margin" Value="10,2,2,2"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TabControl.Resources>
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/img/bullet_blue.png"/>
+                        <Image Source="/img/bullet_blue.png" Width="16"/>
                         <TextBlock Foreground="Blue" Text="Основне"/>
                     </StackPanel>
                 </TabItem.Header>
@@ -26,7 +61,7 @@
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/img/bullet_green.png"/>
+                        <Image Source="/img/bullet_green.png" Width="16"/>
                         <TextBlock Foreground="Green" Text="Безпека"/>
                     </StackPanel>
                 </TabItem.Header>
@@ -34,7 +69,7 @@
             <TabItem>
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <Image Source="/img/bullet_red.png"/>
+                        <Image Source="/img/bullet_red.png" Width="16"/>
                         <TextBlock Foreground="Red" Text="Детальніше"/>
                     </StackPanel>
                 </TabItem.Header>
